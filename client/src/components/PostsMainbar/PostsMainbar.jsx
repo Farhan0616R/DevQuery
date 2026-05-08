@@ -1,5 +1,5 @@
 import React from "react";
-import { useLocation /* , useNavigate */ } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import "./PostsMainbar.css";
 import PostsList from "./PostsList";
@@ -8,21 +8,19 @@ import AddPost from "../../Pages/AddPosts/AddPost";
 const PostsMainbar = () => {
   const location = useLocation();
   const user = 1;
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const postsList = useSelector((state) => state.postsReducer);
   // console.log(postsList)
 
-/*
-const checkAuth = () => {
-  if (user === null) {
-    alert("login or signup to add a post");
-    navigate("/Auth");
-  } else {
-    navigate("/Posts");
-  }
-};
-*/
+  const checkAuth = () => {
+    if (user === null) {
+      alert("login or signup to add a post");
+      navigate("/Auth");
+    } else {
+      navigate("/Posts");
+    }
+  };
 
   return (
     <div className="main-bar">
